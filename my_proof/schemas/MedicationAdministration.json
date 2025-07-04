@@ -4,6 +4,39 @@
   "type": "object",
   "required": ["id", "resourceType", "status", "medicationCodeableConcept", "subject"],
   "properties": {
-
+    "id": {
+      "type": "string"
+    },
+    "resourceType": {
+      "const": "MedicationAdministration"
+    },
+    "status": {
+      "const": "completed"
+    },
+    "medication": {
+      "type": "object",
+      "required": ["concept"],
+      "properties": {
+        "concept": {
+          "type": "object",
+          "properties": {
+            "coding": {
+              "type": "array",
+              "properties": {
+              }
+            }
+          }
+        }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "required": ["reference"],
+      "properties": {
+        "reference": {
+          "type": "string"
+        }
+      }
+    }
   }
 } 
