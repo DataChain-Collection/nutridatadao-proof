@@ -19,11 +19,28 @@
       "properties": {
         "concept": {
           "type": "object",
+          "required": ["coding", "text"],
           "properties": {
             "coding": {
               "type": "array",
-              "properties": {
+              "items": {
+                "type": "object",
+                "required": ["system", "code"],
+                "properties": {
+                  "system": {
+                    "const": "http://www.nutridao.com/fhir/supplement"
+                  },
+                  "code": {
+                    "type": "string"
+                  },
+                  "display": {
+                    "type": "string"
+                  }
+                }
               }
+            },
+            "text": {
+              "type": "string"
             }
           }
         }
@@ -34,6 +51,9 @@
       "required": ["reference"],
       "properties": {
         "reference": {
+          "type": "string"
+        },
+        "display": {
           "type": "string"
         }
       }
